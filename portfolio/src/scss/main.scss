@@ -400,7 +400,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    .page{
+    button{
+        border:none;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -408,7 +409,7 @@ body{
         width: 40px;
         height: 50px;
     }
-    .page:hover{
+    button:hover{
         border: 1px solid #707070;
 
     }

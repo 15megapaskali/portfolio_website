@@ -54,9 +54,9 @@ const HomeWhoWeHelp = () =>{
             </div>
 
             <div className="pages">
-                <div className="page">1</div>
-                <div className="page">2</div>
-                <div className="page">3</div>
+                <button className="main-btn">1</button>
+                <button className="main-btn">2</button>
+                <button className="main-btn">3</button>
             </div>
         </div>
     )
