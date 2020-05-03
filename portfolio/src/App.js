@@ -2,15 +2,15 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import {HashRouter,Route,Link,Switch,NavLink} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Switch>
-        <Route exact to="/" component={Home} />
+        <Route exact path='/' component={Home}/>
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 
