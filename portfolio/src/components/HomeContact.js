@@ -2,27 +2,44 @@ import React, {Component,useState,useEffect} from "react";
 import {Link} from "react-scroll";
 import decoration from '../assets/Decoration.svg';
 import instagram from '../assets/Instagram.svg';
-import facebook from '../assets/Facebook.svg'
+import facebook from '../assets/Facebook.svg';
+const API = "https://fer-api.coderslab.pl/v1/portfolio/contact";
 
 
 const HomeContact = () =>{
     const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [message,setMessage] = useState("");
-
+    const regexName = /^[a-zA-Z0-9_ ]*$/
+    const [name,setName] = useState("Adam");
+    const [email,setEmail] = useState("adam@adam.com");
+    const [message,setMessage] = useState("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam ullam quisquam ducimus consequatur, expedita aspernatur veritatis tenetur vitae quasi in officia dolor perspiciatis quod provident vero cupiditate fugit nihil laboriosam.");
+    const obj = {name:name,
+                email:email,
+                 message:message};
 
     const handleSubmit = (e)=>{
+        console.log(obj)
         e.preventDefault();
-        if(name.length > 3 && regex.test(email) && message.length > 3) {
-            alert("działa");
-            
+        if(regexName.test(name) && regex.test(email) && message.length > 120) {
+            fetch(API,{
+                method:'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                  },
+                body: JSON.stringify(obj)
+            })
+            .then(res => res.json())
+            .then(obj => {
+                console.log('Success:', obj);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+              });
+
         }
         else {
-            alert("źle")
+            alert("nieprawidłowe dane w formularzu")
         }
-
+        
     }
 
     return(
