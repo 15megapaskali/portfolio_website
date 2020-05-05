@@ -9,8 +9,7 @@ body{
 
 .main-container{
     margin: 0 auto;
-    max-width: 1400px;
-
+    width: 100%;
 }
 
 #header{
@@ -89,7 +88,7 @@ body{
 }
 
 .header-title{
-    width: 674px;
+    // width: 674px;
     margin: auto;
     letter-spacing: -0.76px;
     text-align: center;

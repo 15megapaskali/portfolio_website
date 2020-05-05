@@ -6,6 +6,25 @@ import facebook from '../assets/Facebook.svg'
 
 
 const HomeContact = () =>{
+    const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    const [name,setName] = useState("");
+    const [email,setEmail] = useState("");
+    const [message,setMessage] = useState("");
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        if(name.length > 3 && regex.test(email) && message.length > 3) {
+            alert("działa");
+            
+        }
+        else {
+            alert("źle")
+        }
+
+    }
+
     return(
         <div id="contact">
             <div className="contact-form">
@@ -19,22 +38,23 @@ const HomeContact = () =>{
                         <div className="form-fline">
                             <div className="fname">
                                 <label for="fname">Wpisz swoje imię</label><br/>
-                                <input type="text" id="fname" name="fname" placeholder="Krzysztof"/>
+                                <input type="text" id="fname" name="fname" placeholder="Krzysztof" value={name} onChange={(e)=> setName(e.currentTarget.value)}/>
                             </div>
                             <div className="email">
                                 <label for="email">Wpisz swój email</label><br/>
-                                <input type="email" id="email" name="email" placeholder="abc@xyz.pl"/>
+                                <input type="email" id="email" name="email" placeholder="abc@xyz.pl" value={email} onChange={(e)=> setEmail(e.currentTarget.value)}/>
                             </div>
                             
                             
                         </div>
                         <div className="form-sline">
                             <label for="message">Wpisz swoją wiadomość</label><br/>
-                            <textarea name="message" rows="4"placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
+                            <textarea value={message} onChange={(e)=>setMessage(e.currentTarget.value)} name="message" rows="4"placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
                             
                             </textarea>
                         </div>
-                        <input type="submit" value="Wyślij"/>
+                        <input type="submit" value="Wyślij" onClick={handleSubmit}/>
+                        {/* zapiąć event, walidacje formularza, wysłać fatchem do API */}
                     </form>
                 </div>
             </div>
