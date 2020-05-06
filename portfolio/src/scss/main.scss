@@ -413,3 +413,91 @@ body{
 
     }
 }
+
+.about-title{
+    font-size: 2rem;
+    margin: 3%;
+}
+
+#login{
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .login-content{
+        margin:10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .login-buttons{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            button{
+                background-color: transparent;
+                color:  #3C3C3C;
+                border: none;
+                width: 150px;
+                height: 50px;
+                float: right;
+    
+            }
+            button:hover{
+                border: 0.75px solid #3C3C3C;
+            }
+        }
+    
+    }
+    .login-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .login-grey-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 384px;
+        height: fit-content;
+        background-color: #F0F1F1;
+        margin:5%;
+        .form-login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 90%;
+            height: 90%;
+            .form{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 90%;
+                height: 90%;
+                .pass,.email{
+                    width: 100%;
+                    margin:10%;
+                    label{
+                        margin:2%;
+                    }
+                    input{
+                        margin:2%;
+                        border: none;
+                        border-bottom: 1px solid #707070;
+                        width: 100%;
+                        }
+                }
+            }
+
+        }
+    }
+}   

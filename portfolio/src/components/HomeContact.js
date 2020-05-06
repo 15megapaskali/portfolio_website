@@ -1,5 +1,6 @@
 import React, {Component,useState,useEffect} from "react";
 import {Link} from "react-scroll";
+import { Formik } from 'formik';
 import decoration from '../assets/Decoration.svg';
 import instagram from '../assets/Instagram.svg';
 import facebook from '../assets/Facebook.svg';
@@ -16,29 +17,44 @@ const HomeContact = () =>{
                 email:email,
                  message:message};
 
+
+    useEffect(()=>{
+        
+    },[name,email,message])            
+
     const handleSubmit = (e)=>{
         console.log(obj)
         e.preventDefault();
-        if(regexName.test(name) && regex.test(email) && message.length > 120) {
-            fetch(API,{
-                method:'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                  },
-                body: JSON.stringify(obj)
-            })
-            .then(res => res.json())
-            .then(obj => {
-                console.log('Success:', obj);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-              });
+        fetch(API,{
+            method:'POST',
+            headers: {
+                "Content-Type": "application/json"
+              },
+            body: JSON.stringify(obj),
+    
+        })
+        .then(res => res.json())
+        .then(obj => {
+            console.log('Success:', obj.status);
+            return(
+                <h1>{obj.status}</h1>
+            )
+            
+        })
+        .catch((error) => {
+            console.error('Error:', error.status);
+            return(
+                <h1>{error}</h1>
+            )
+          });
 
-        }
-        else {
-            alert("nieprawidłowe dane w formularzu")
-        }
+        // if(regexName.test(name) && regex.test(email) && message.length > 120) {
+            
+
+        // }
+        // else {
+        //     console.log("nieprawidłowe dane w formularzu")
+        // }
         
     }
 
@@ -66,7 +82,8 @@ const HomeContact = () =>{
                         </div>
                         <div className="form-sline">
                             <label for="message">Wpisz swoją wiadomość</label><br/>
-                            <textarea value={message} onChange={(e)=>setMessage(e.currentTarget.value)} name="message" rows="4"placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
+                            <textarea value={message} onChange={(e)=>setMessage(e.currentTarget.value)} name="message" rows="4"
+                            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
                             
                             </textarea>
                         </div>
