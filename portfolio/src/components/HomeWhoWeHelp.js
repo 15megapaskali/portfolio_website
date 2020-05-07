@@ -23,33 +23,35 @@ const HomeWhoWeHelp = () =>{
             </div>
             <div className="who-list">
                 <table>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Dbam o Zdrowie”</p>
-                            <p className="sp">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Dla dzieci”</p>
-                            <p className="sp">Cel i misja: Pomoc dzieciom z ubogich rodzin.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, meble, zabawki</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Bez domu”</p>
-                            <p className="sp">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, jedzenie, ciepłe koce</p>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p className="fp">Fundacja “Dbam o Zdrowie”</p>
+                                <p className="sp">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
+                            </td>
+                            <td>
+                                <p className="sc">ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p className="fp">Fundacja “Dla dzieci”</p>
+                                <p className="sp">Cel i misja: Pomoc dzieciom z ubogich rodzin.</p>
+                            </td>
+                            <td>
+                                <p className="sc">ubrania, meble, zabawki</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p className="fp">Fundacja “Bez domu”</p>
+                                <p className="sp">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.</p>
+                            </td>
+                            <td>
+                                <p className="sc">ubrania, jedzenie, ciepłe koce</p>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 

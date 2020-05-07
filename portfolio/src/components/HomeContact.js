@@ -1,3 +1,4 @@
+import Basic from './Basic'
 import React, {Component,useState,useEffect} from "react";
 import {Link} from "react-scroll";
 import { Formik } from 'formik';
@@ -64,33 +65,7 @@ const HomeContact = () =>{
                 <div className="contact-LS">
 
                 </div>
-                <div className="contact-RS">
-                    <p className="contact-title">Skontaktuj się z nami</p>
-                    <img src={decoration} alt='decoration' id='decoration'></img>
-                    <form action="#" className="form">
-                        <div className="form-fline">
-                            <div className="fname">
-                                <label for="fname">Wpisz swoje imię</label><br/>
-                                <input type="text" id="fname" name="fname" placeholder="Krzysztof" value={name} onChange={(e)=> setName(e.currentTarget.value)}/>
-                            </div>
-                            <div className="email">
-                                <label for="email">Wpisz swój email</label><br/>
-                                <input type="email" id="email" name="email" placeholder="abc@xyz.pl" value={email} onChange={(e)=> setEmail(e.currentTarget.value)}/>
-                            </div>
-                            
-                            
-                        </div>
-                        <div className="form-sline">
-                            <label for="message">Wpisz swoją wiadomość</label><br/>
-                            <textarea value={message} onChange={(e)=>setMessage(e.currentTarget.value)} name="message" rows="4"
-                            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
-                            
-                            </textarea>
-                        </div>
-                        <input type="submit" value="Wyślij" onClick={handleSubmit}/>
-                        {/* zapiąć event, walidacje formularza, wysłać fatchem do API */}
-                    </form>
-                </div>
+                <Basic/>
             </div>
             <div className="footer">
                 <div></div>
