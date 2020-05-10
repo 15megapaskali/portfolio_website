@@ -9,21 +9,23 @@ const HomeWhoWeHelp = () =>{
     const [current, setCurrent] = useState('Fundacjom');
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [todosPerPage,setTodosPerPage] = useState(3)
+    const [todosPerPage,setTodosPerPage] = useState(3);
+   
 
-    let url = "http://localhost:3008/fundations"
+    const url = "http://localhost:3008/fundations"
 
     useEffect(() => {
         fetch(url,{method:'GET',
-        headers: {
-            "Content-Type": "application/json"
-          }})
+                    headers: {
+                      "Content-Type": "application/json"
+                    }})
         .then(resp =>resp.json())
         .then(data => {
             setFundation(data)
         })
     }, [])
     
+    console.log(fundation)
 
     const handleClick = (e) =>{
         setCurrentPage(e.target.id)
@@ -36,11 +38,19 @@ const HomeWhoWeHelp = () =>{
     }
     const indexOfLastTodo = currentPage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-    const currentTodos = getCurrent().slice(indexOfFirstTodo, indexOfLastTodo);
+    const currentTodos = getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo);
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(getCurrent()?.items.length / todosPerPage); i++) {
+      pageNumbers.push(i);
+    }
 
     return(
         <div id="who-help">
             {console.log(getCurrent())}
+            {console.log("current to do ", currentTodos)}
+            {console.log("pagenumbers",pageNumbers)}
+            
             <div className="who-title">
                 <p className="contact-title">Komu pomagamy?</p>
                 <img src={decoration} alt='decoration'></img>
@@ -58,7 +68,7 @@ const HomeWhoWeHelp = () =>{
             <div className="who-list">
                 <table>
                     <tbody>
-                        {getCurrent()?.items.map((e)=>{
+                        {getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo).map((e)=>{
                             return(
                                 <tr>
                                     <td>
@@ -78,9 +88,20 @@ const HomeWhoWeHelp = () =>{
             </div>
 
             <div className="pages">
-                <button className="main-btn">1</button>
-                <button className="main-btn">2</button>
-                <button className="main-btn">3</button>
+                <ul>
+                    {pageNumbers.map(number =>{
+                        return(
+                            <li
+                                key={number}
+                                id={number}
+                                onClick={handleClick}
+                                className={"page-btn"}
+                        >
+                            {number}
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
 
 
