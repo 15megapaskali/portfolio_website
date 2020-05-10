@@ -1,8 +1,15 @@
 import React, {Component,useState,useEffect,} from "react";
+import Login from "./Login";
+import Register from "./Register";
 import {Link} from "react-scroll";
 import headerpic from '../assets/Home-Hero-Image.jpg';
 import decoration from '../assets/Decoration.svg';
 const HomeHeader = () => {
+    const [login,setLogin] = useState(false);
+    const [register, setRegister] = useState(false);
+
+
+
     return(
         <>
             <div id="header">
@@ -12,8 +19,8 @@ const HomeHeader = () => {
                 <div className="header-RS">
                     <div className="bars">
                         <div className="login-bar">
-                            <button>Zaloguj</button>
-                            <button>Załóż konto</button>
+                            <button onClick={(ev)=>{setLogin(true)}}>Zaloguj</button>
+                            <button onClick={(ev)=>{setRegister(true)}}>Załóż konto</button>
                         </div>
                         <nav className="nav-bar">
                             <ul className="nav-bar-list">

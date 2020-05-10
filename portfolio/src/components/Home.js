@@ -8,7 +8,7 @@ import DecorationBlock from "./DecorationBlock";
 import HomeFourColumns from "./HomeFourColumns";
 import ButtonOddajrzecz from "./ButtonOddajRzecz";
 import Login from "./Login";
-// import Basic from "./Basic";
+
 
 
 const Home = () => (

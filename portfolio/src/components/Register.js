@@ -7,6 +7,34 @@ const Register = ()=>{
     const [pass,setPass] = useState("");
     const [repass,setRepass] = useState("");
 
+    const url = "http://localhost:3008/users"
+
+    useEffect(() => {
+        
+    }, [])
+
+    const submitHandle = () =>{
+        const obj = {};
+        fetch(url,{method:'POST',
+                    headers: {
+                      "Content-Type": "application/json"
+                    }})
+        .then(resp =>resp.json())
+        .then(data => {
+            
+            if(pass === repass) {
+                obj ={
+                    user:email,
+                    password:pass
+                }
+            }
+            
+        })
+        
+    }
+
+
+
     
     return(
         <div id="login">
@@ -35,7 +63,7 @@ const Register = ()=>{
                     </div>
                 </div>
                 <div className="login-buttons">
-                    <button>Załóż konto</button>
+                    <button onClick={submitHandle}>Załóż konto</button>
                     <button>Zaloguj się</button>
                 </div>
             </div>

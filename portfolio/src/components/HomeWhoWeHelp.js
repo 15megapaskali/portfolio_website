@@ -38,7 +38,7 @@ const HomeWhoWeHelp = () =>{
     }
     const indexOfLastTodo = currentPage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-    const currentTodos = getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo);
+    // const currentTodos = getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo);
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(getCurrent()?.items.length / todosPerPage); i++) {
@@ -48,8 +48,7 @@ const HomeWhoWeHelp = () =>{
     return(
         <div id="who-help">
             {console.log(getCurrent())}
-            {console.log("current to do ", currentTodos)}
-            {console.log("pagenumbers",pageNumbers)}
+
             
             <div className="who-title">
                 <p className="contact-title">Komu pomagamy?</p>
