@@ -63,9 +63,10 @@ const HomeContact = () =>{
         <div id="contact">
             <div className="contact-form">
                 <div className="contact-LS">
-
                 </div>
+
                 <Basic/>
+                
             </div>
             <div className="footer">
                 <div></div>

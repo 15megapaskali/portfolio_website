@@ -7,6 +7,7 @@ const Register = ()=>{
     const [pass,setPass] = useState("");
     const [repass,setRepass] = useState("");
 
+    
     return(
         <div id="login">
             <div className="login-content">
@@ -17,8 +18,8 @@ const Register = ()=>{
                 <div className="login-grey-box">
                     <div className="form-login">
                         <div className="email">
-                                <label for="email">Wpisz swój email</label><br/>
-                                <input type="email" id="email" name="email" placeholder="" value={email} onChange={(e)=> setEmail(e.currentTarget.value)}/>
+                            <label for="email">Wpisz swój email</label><br/>
+                            <input type="email" id="email" name="email" placeholder="" value={email} onChange={(e)=> setEmail(e.currentTarget.value)}/>
                         </div>
                         <div className="pass">
                             <label for="pass">Hasło</label><br/>
