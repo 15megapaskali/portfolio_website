@@ -1,63 +1,110 @@
 import React, {Component,useState,useEffect} from "react";
 import {Link} from "react-scroll";
 import decoration from '../assets/Decoration.svg';
-
+import { get } from "react-scroll/modules/mixins/scroller";
 
 
 const HomeWhoWeHelp = () =>{
+    const [fundation, setFundation] = useState([]);
+    const [current, setCurrent] = useState('Fundacjom');
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [todosPerPage,setTodosPerPage] = useState(3);
+   
+
+    const url = "http://localhost:3008/fundations"
+
+    useEffect(() => {
+        fetch(url,{method:'GET',
+                    headers: {
+                      "Content-Type": "application/json"
+                    }})
+        .then(resp =>resp.json())
+        .then(data => {
+            setFundation(data)
+        })
+    }, [])
+    
+    console.log(fundation)
+
+    const handleClick = (e) =>{
+        setCurrentPage(e.target.id)
+    }
+
+    const getCurrent = () => fundation.find(fund => fund.name === current) || null
+
+    const handleSwitch = (e) => {
+        setCurrent(e.target.name)
+    }
+    const indexOfLastTodo = currentPage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    const currentTodos = getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo);
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(getCurrent()?.items.length / todosPerPage); i++) {
+      pageNumbers.push(i);
+    }
+
     return(
         <div id="who-help">
+            {console.log(getCurrent())}
+            {console.log("current to do ", currentTodos)}
+            {console.log("pagenumbers",pageNumbers)}
+            
             <div className="who-title">
                 <p className="contact-title">Komu pomagamy?</p>
                 <img src={decoration} alt='decoration'></img>
             </div>
             <div className="who-buttons">
-                <button className="main-btn">Fundacjom</button>
-                <button className="main-btn">Organizacjom pozarządowym</button>
+                <button name="Fundacjom" onClick={handleSwitch} className="main-btn">Fundacjom</button>
+                <button name="Oganizacjom" onClick={handleSwitch} className="main-btn">Organizacjom pozarządowym</button>
                 <button className="main-btn">Lokalnym zbiórkom</button>
             </div>
             <div className="who-desc">
                 <p>
-                W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
+               {getCurrent()?.desc}
                 </p>
             </div>
             <div className="who-list">
                 <table>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Dbam o Zdrowie”</p>
-                            <p className="sp">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, jedzenie, sprzęt AGD, meble, zabawki</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Dla dzieci”</p>
-                            <p className="sp">Cel i misja: Pomoc dzieciom z ubogich rodzin.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, meble, zabawki</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p className="fp">Fundacja “Bez domu”</p>
-                            <p className="sp">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.</p>
-                        </td>
-                        <td>
-                            <p className="sc">ubrania, jedzenie, ciepłe koce</p>
-                        </td>
-                    </tr>
+                    <tbody>
+                        {getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo).map((e)=>{
+                            return(
+                                <tr>
+                                    <td>
+                                        <p className="fp">{e.header}</p>
+                                        <p className="sp">{e.subheader}</p>
+                                    </td>
+                                    <td>
+                                        <p className="sc">{e.desc}</p>
+                                    </td>
+                                </tr>
+                                
+                            )
+                        })}
+                    
+                    </tbody>
                 </table>
             </div>
 
             <div className="pages">
-                <button className="main-btn">1</button>
-                <button className="main-btn">2</button>
-                <button className="main-btn">3</button>
+                <ul>
+                    {pageNumbers.map(number =>{
+                        return(
+                            <li
+                                key={number}
+                                id={number}
+                                onClick={handleClick}
+                                className={"page-btn"}
+                        >
+                            {number}
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
+
+
         </div>
     )
 }

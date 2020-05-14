@@ -7,11 +7,15 @@ import HomeThreeColumns from "./HomeThreeColumns";
 import DecorationBlock from "./DecorationBlock";
 import HomeFourColumns from "./HomeFourColumns";
 import ButtonOddajrzecz from "./ButtonOddajRzecz";
+import Login from "./Login";
+// import Basic from "./Basic";
 
 
 const Home = () => (
    <>
     <div className="main-container">
+        
+        {/* <Login/> */}
         <HomeHeader />
         <HomeThreeColumns/>
         <DecorationBlock/>
@@ -20,6 +24,7 @@ const Home = () => (
         <HomeAboutUs />
         <HomeWhoWeHelp/>
         <HomeContact />
+        
     </div>
    </>
 )
