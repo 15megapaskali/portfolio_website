@@ -1,12 +1,55 @@
 import React, {Component,useState,useEffect} from "react";
 import {Link} from "react-scroll";
+
 import decoration from '../assets/Decoration.svg';
 
 const Login = ()=>{
     const [email,setEmail] = useState("");
     const [pass,setPass] = useState("");
+    const [user, setUser] = useState(null)
+
+    const url = "http://localhost:3008/users"
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+       
+        if(email.length > 2 && pass.length > 4){
+            fetch(`${url}?user=${email}&password=${pass}`,{
+                method:'GET',
+            headers: {
+                "Content-Type": "application/json"
+              },
+              
+            })
+            .then(response => response.json())
+            .then(obj => {
+                
+                if(obj.length) {
+                    setUser(obj[0])
+                }
+
+                // pod zmienną user mamy dostęp do informacji o zalogowanym użytkowniku
+            }).catch(err => {
+                return(
+                    <h1>{err}</h1>
+                )
+
+
+                // pod zmienną err mamy dostęp do informacji o błędzie
+            })
+        }
+        else {
+            return(
+                <h1>"- Login musi być dłuższy niż 2 znaki\n" +
+                    "- Hasło musi być dłuższe niż 4 znaki"</h1>
+            )
+        }
+        }
 
     return(
+        <>
+        {console.log(user)}
         <div id="login">
             <div className="login-content">
                 <div className="login-title">
@@ -31,10 +74,11 @@ const Login = ()=>{
                 </div>
                 <div className="login-buttons">
                     <button className="register-btn">Załóż konto</button>
-                    <button className="login-btn">Zaloguj się</button>
+                    <button className="login-btn" onClick={handleSubmit}>Zaloguj się</button>
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
