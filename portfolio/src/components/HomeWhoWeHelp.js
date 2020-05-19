@@ -38,7 +38,7 @@ const HomeWhoWeHelp = () =>{
     }
     const indexOfLastTodo = currentPage * todosPerPage;
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-    // const currentTodos = getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo);
+    const currentTodos = () => getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo) || []
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(getCurrent()?.items.length / todosPerPage); i++) {
@@ -67,7 +67,7 @@ const HomeWhoWeHelp = () =>{
             <div className="who-list">
                 <table>
                     <tbody>
-                        {getCurrent()?.items.slice(indexOfFirstTodo, indexOfLastTodo).map((e)=>{
+                        {currentTodos().map((e)=>{
                             return(
                                 <tr>
                                     <td>
