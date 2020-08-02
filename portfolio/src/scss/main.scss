@@ -73,7 +73,7 @@ body{
     display: flex;
     font-size: 18px;
     li{
-        height: 42px;
+        max-height: 42px;
 
         a{
             display: inline-block;
@@ -86,7 +86,7 @@ body{
 
     }
     li:hover{
-       
+        margin: -0.75px;
         border: 0.75px solid #3C3C3C;
         
     }
