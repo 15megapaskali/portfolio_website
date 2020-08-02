@@ -1,5 +1,5 @@
 import React, {Component,useState,useEffect} from "react";
-import {Link} from "react-scroll";
+import {Link} from "react-router-dom";
 
 import decoration from '../assets/Decoration.svg';
 
@@ -73,7 +73,7 @@ const Login = ({choice})=>{
                     </div>
                 </div>
                 <div className="login-buttons">
-                    <button className="register-btn" onClick={(ev)=>{choice('register')}}>Załóż konto</button>
+                    <button className="register-btn" onClick={(ev)=>{choice('register')}}><Link to="/register">Załóż konto</Link></button>
                     <button className="login-btn" onClick={handleSubmit}>Zaloguj się</button>
                 </div>
             </div>

@@ -1,8 +1,9 @@
 import React, {Component,useState,useEffect,} from "react";
 import Login from "./Login";
 import Register from "./Register";
+import { Link } from 'react-router-dom';
 
-import {Link} from "react-scroll";
+// import {Link} from "react-scroll";
 import headerpic from '../assets/Home-Hero-Image.jpg';
 import decoration from '../assets/Decoration.svg';
 const HomeHeader = () => {
@@ -40,8 +41,8 @@ const HomeHeader = () => {
                             <img src={decoration} alt='decoration' id='decoration'></img>
                         </div>
                         <div className="buttons-contener">
-                            <button className="main-btn">Oddaj rzeczy</button>
-                            <button className="main-btn">Zorganizuj</button>
+                            <button className="main-btn"><Link to="/login">Oddaj rzeczy</Link></button>
+                            <button className="main-btn"><Link to="/login">Zorganizuj</Link></button>
                         </div>
                     </div>
                 </div>
