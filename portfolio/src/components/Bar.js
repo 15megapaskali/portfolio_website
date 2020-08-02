@@ -15,7 +15,7 @@ const Bar = ({choice}) => {
             </div>
             <nav className="nav-bar">
                 <ul className="nav-bar-list">
-                    <li><Link to={'header'} onClick={(ev)=>choice('')}>Start</Link></li>
+                    <li><Link to={'header'} onClick={(ev)=>choice(false)}>Start</Link></li>
                     <li><Link to={'three-col'}>O co chodzi?</Link></li>
                     <li><Link to={'about-us'}>O nas</Link></li>
                     <li><Link to={'who-help'}>Fundacja i organizacje</Link></li>

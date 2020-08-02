@@ -2,26 +2,33 @@ import React, {Component,useState,useEffect,} from "react";
 import Login from "./Login";
 import Register from "./Register";
 import { Link } from 'react-router-dom';
-
+import Home from "./Home";
 // import {Link} from "react-scroll";
 import headerpic from '../assets/Home-Hero-Image.jpg';
 import decoration from '../assets/Decoration.svg';
 const HomeHeader = () => {
+    const [stan, setStan] = useState('');
+
+    const handleStanHome = (arg) =>{
+    setStan(arg);
+    setRegister(!register)
+    setLogin(!login)
+    }
 
     const [login,setLogin] = useState(false);
     const [register, setRegister] = useState(false);
-
+    console.log('stan', stan);
 
     if (login){
         return(<>
         
-        <Login/>
+        <Login props={stan} choice={handleStanHome}/>
         </>)
     }else if(register){
         return(
         <>
         
-        <Register/>
+        <Register props={stan} choice={handleStanHome}/>
         </>
         )
     }else{
@@ -41,8 +48,8 @@ const HomeHeader = () => {
                             <img src={decoration} alt='decoration' id='decoration'></img>
                         </div>
                         <div className="buttons-contener">
-                            <button className="main-btn"><Link to="/login">Oddaj rzeczy</Link></button>
-                            <button className="main-btn"><Link to="/login">Zorganizuj</Link></button>
+                            <button className="main-btn" onClick={()=>setLogin(true)}>Oddaj rzeczy</button>
+                            <button className="main-btn" onClick={()=>setLogin(true)}>Zorganizuj</button>
                         </div>
                     </div>
                 </div>
