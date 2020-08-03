@@ -6,7 +6,7 @@ import Home from "./Home";
 // import {Link} from "react-scroll";
 import headerpic from '../assets/Home-Hero-Image.jpg';
 import decoration from '../assets/Decoration.svg';
-const HomeHeader = () => {
+const HomeHeader = ({choice}) => {
     const [stan, setStan] = useState('');
 
     const handleStanHome = (arg) =>{
@@ -48,8 +48,8 @@ const HomeHeader = () => {
                             <img src={decoration} alt='decoration' id='decoration'></img>
                         </div>
                         <div className="buttons-contener">
-                            <button className="main-btn" onClick={()=>setLogin(true)}>Oddaj rzeczy</button>
-                            <button className="main-btn" onClick={()=>setLogin(true)}>Zorganizuj</button>
+                            <button className="main-btn" onClick={(ev)=>{choice('login')}}>Oddaj rzeczy</button>
+                            <button className="main-btn" onClick={(ev)=>{choice('login')}}>Zorganizuj</button>
                         </div>
                     </div>
                 </div>

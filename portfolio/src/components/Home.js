@@ -43,7 +43,7 @@ const Home = () => {
             <>
              <div className="main-container">
                  <Bar props={stan} choice={handleStanHome}/>    
-                 <HomeHeader />
+                 <HomeHeader props={stan} choice={handleStanHome}/>
                  <HomeThreeColumns/>
                  <DecorationBlock/>
                  <HomeFourColumns/>
