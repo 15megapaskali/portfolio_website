@@ -1,6 +1,10 @@
 @import './settings/colors';
 @import './settings/fonts';
 
+button{
+    cursor: pointer;
+}
+
 body{
     font-family: $font-base;
     background-color: $color-bg;
@@ -62,6 +66,7 @@ body{
     font-size: 1.6rem;
     font-weight: lighter;
     background-color: transparent;
+    cursor: pointer;
 }
 
 a{
@@ -101,7 +106,7 @@ a{
     li:hover{
         margin: -0.75px;
         border: 0.75px solid #3C3C3C;
-        
+        cursor: pointer;
     }
 }
 
