@@ -373,6 +373,7 @@ a{
         }
         button:hover{
             border: 0.75px solid #3C3C3C;
+            margin: -0.75px;
         }
         
     }
@@ -423,14 +424,14 @@ a{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:35%;
+        
         width: 40px;
-        height: 50px;
+        padding:20%;
         cursor: pointer;
     }
     li:hover{
         border: 1px solid #707070;
-
+        margin: -1px;
     }
     }
 }
@@ -472,6 +473,7 @@ a{
             }
             button:hover{
                 border: 0.75px solid #3C3C3C;
+                margin: -0.75px;
             }
         }
     

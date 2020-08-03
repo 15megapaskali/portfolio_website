@@ -47,7 +47,7 @@ const Home = () => {
                  <HomeThreeColumns/>
                  <DecorationBlock/>
                  <HomeFourColumns/>
-                 <ButtonOddajrzecz/>
+                 <ButtonOddajrzecz props={stan} choice={handleStanHome}/>
                  <HomeAboutUs />
                  <HomeWhoWeHelp/>
                  <HomeContact />
