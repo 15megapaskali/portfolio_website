@@ -6,7 +6,7 @@ import decoration from '../assets/Decoration.svg';
 const regexMail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 
-const Register = ()=>{
+const Register = ({choice})=>{
     const [email,setEmail] = useState("");
     const [pass,setPass] = useState("");
     const [repass,setRepass] = useState("");
@@ -70,7 +70,7 @@ const Register = ()=>{
                                 <input type="text" id="pass" name="pass" placeholder="" value={pass} onChange={(e)=> setPass(e.currentTarget.value)}/>
                             </div>
                             <div className="pass">
-                                <label for="re-pass">Hasło</label><br/>
+                                <label for="re-pass">Powtórz hasło</label><br/>
                                 <input type="text" id="repass" name="repass" placeholder="" value={repass} onChange={(e)=> setRepass(e.currentTarget.value)}/>
                             </div>
 
@@ -80,7 +80,7 @@ const Register = ()=>{
                 </div>
                 <div className="login-buttons">
                     <button onClick={handleSubmit}>Załóż konto</button>
-                    <button onClick={handleLogIn}>Zaloguj się</button>
+                    <button onClick={(ev)=>{choice('login')}}>Zaloguj się</button>
                 </div>
             </div>
         </div>
