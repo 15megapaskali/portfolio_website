@@ -1,14 +1,20 @@
-@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
 
+@import "./font-awesome/scss/font-awesome.scss";
 @media only screen and (max-width: 600px) {
     body {
-      background-color: lightblue;
+      
+    }
+
+    .nav-bar{
+        display: none;
     }
      /* Style the navigation menu */
     .topnav {
+        display: block;
         overflow: hidden;
-        background-color: #333;
+        background-color: silver;
         position: relative;
+        
     }
     
     /* Hide the links inside the navigation menu (except for logo/home) */
@@ -18,7 +24,7 @@
     
     /* Style navigation menu links */
     .topnav a {
-        color: white;
+        color: #3C3C3C;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
@@ -27,11 +33,13 @@
     
     /* Style the hamburger menu */
     .topnav a.icon {
-        background: black;
+        background: #fff;
         display: block;
         position: absolute;
         right: 0;
         top: 0;
+        height: 45px;
+        width: 45px;
     }
     
     /* Add a grey background color on mouse-over */
@@ -42,9 +50,70 @@
     
     /* Style the active link (or home/logo) */
     .active {
-        background-color: #4CAF50;
+        background-color: #FFF;
         color: white;
     } 
+
+    .icon{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        height: 45px;
+        width: 45px;
+        text-align: center;
+    }
+
+    .header-LS{
+        display: none;
+    }
+    .header-RS{
+        width: 100%;
+        .header-content{
+            .buttons-contener{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    #three-col{
+        flex-direction: column;
+    }
+    #four-col{
+        flex-direction: column;
+    }
+
+    #about-us{
+        .about-LS{width: 100%;}
+        .about-RS{
+            display: none;
+        }
+    }
+
+    #who-help{
+        .who-buttons{
+            flex-direction: column;
+        }
+    }
+
+    #contact{
+    
+        background-image: none;
+        background-color: rgba(255, 255, 255, 0.6);
+        }
+    
+
+    .contact-form{
+        .contact-LS{
+            display: none;
+        }
+        .contact-RS{
+            
+        }
+    }
+
+
+
 
 
 
