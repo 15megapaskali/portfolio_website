@@ -1,3 +1,4 @@
+
 @import './settings/colors';
 @import './settings/fonts';
 
@@ -29,6 +30,10 @@ body{
     align-items: center;
     flex-direction: column;
 
+}
+
+.topnav{
+    display: none;
 }
 
 .bars{
