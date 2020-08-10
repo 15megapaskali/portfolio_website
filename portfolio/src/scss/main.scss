@@ -1,6 +1,7 @@
 @import './settings/colors';
 @import './settings/fonts';
 
+
 button{
     cursor: pointer;
 }
@@ -530,3 +531,6 @@ a{
         }
     }
 }   
+
+
+@import './rwd';

@@ -8,7 +8,10 @@ const Bar = ({choice}) => {
     const [register, setRegister] = useState(false);
 
     return(
+        
         <div className="bars">
+            
+            
             <div className="login-bar">
                 <button onClick={(ev)=>{choice('login')}}>Zaloguj</button>
                 <button onClick={(ev)=>{choice('register')}}>Załóż konto</button>
@@ -22,8 +25,11 @@ const Bar = ({choice}) => {
                     <li><Link to={'contact'}>Kontakt</Link></li>
                 </ul>
             </nav>
+            
+            
         </div>
     )
 }
 
 export default Bar;
+
